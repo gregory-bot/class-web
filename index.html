@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>National Park Lookup</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+            background-image: url('https://images.pexels.com/photos/62600/pexels-photo-62600.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        table {
+            width: 50%;
+            margin: auto;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            padding: 10px;
+            text-align: left;
+        }
+        th {
+            background-color: #f4f4f4;
+        }
+        input, button {
+            margin: 10px;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+    <h2>Find National Park Name</h2>
+    <label for="numberInput">Enter a number (1-5): </label>
+    <input type="number" id="numberInput" min="1" max="5">
+    <button onclick="findNationalPark()">Find</button>
+    <p id="result"></p>
+
+    <table>
+        <tr>
+            <th>Number</th>
+            <th>Top 5 National Park Name</th>
+        </tr>
+        <tr><td>1</td><td>Maasai Mara</td></tr>
+        <tr><td>2</td><td>Amboseli</td></tr>
+        <tr><td>3</td><td>Tsavo</td></tr>
+        <tr><td>4</td><td>Nairobi</td></tr>
+        <tr><td>5</td><td>Nakuru</td></tr>
+        <tr><td>Any Other</td><td>Not Available</td></tr>
+    </table>
+
+    <script>
+        function findNationalPark() {
+            let number = document.getElementById('numberInput').value;
+            let parks = {
+                1: 'Maasai Mara',
+                2: 'Amboseli',
+                3: 'Tsavo',
+                4: 'Nairobi',
+                5: 'Nakuru'
+            };
+            
+            let result = parks[number] || 'Not Available';
+            document.getElementById('result').innerText = "National Park: " + result;
+        }
+    </script>
+</body>
+</html>
